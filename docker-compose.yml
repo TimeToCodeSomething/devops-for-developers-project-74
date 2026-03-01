@@ -5,7 +5,8 @@ services:
     build:
       context: .
 
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
+    environment:
+      - NODE_ENV=production
     command: make test
-    volumes:
-      - "./app:/app"
+    image: timetocodesomething/devops-for-developers-project-74

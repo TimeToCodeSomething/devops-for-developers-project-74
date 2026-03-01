@@ -1,10 +1,14 @@
 version: "3"
 
 services:
-  webapp:
-    extends:
-      file: docker-compose.yml
-      service: app
+  app-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
     command: make dev
     ports:
       - 8080:8080
+    volumes:
+      - "./app:/app"
+    environment:  
+      - NODE_ENV=development
